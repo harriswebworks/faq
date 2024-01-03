@@ -6,6 +6,7 @@ use Harriswebworks\FAQ\Model\ResourceModel\Article\CollectionFactory;
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
     protected $collection;
+    protected $loadedData;
 
     public function __construct(
         $name,

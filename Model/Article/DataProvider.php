@@ -8,6 +8,8 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
     protected $collection;
 
+    protected $loadedData;
+
     protected $dataPersistor;
 
     public function __construct(
@@ -44,6 +46,6 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
             $this->dataPersistor->clear('harriswebworks_faq');
         }
 
-        return $this->loadedData;
+        return $this->loadedData ?? [];
     }
 }

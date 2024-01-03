@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">harriswebworks_article_form.harriswebworks_article_form_data_source</item>
+            <item name="deps" xsi:type="string">harriswebworks_article_form.harriswebworks_article_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">FAQ Information</item>
+        <item name="layout" xsi:type="array">
+            <item name="type" xsi:type="string">tabs</item>
+        </item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Harriswebworks\FAQ\Block\Adminhtml\Faq\Edit\BackButton</item>
+            <item name="delete" xsi:type="string">Harriswebworks\FAQ\Block\Adminhtml\Faq\Edit\DeleteButton</item>
+            <item name="reset" xsi:type="string">Harriswebworks\FAQ\Block\Adminhtml\Faq\Edit\ResetButton</item>
+            <item name="save" xsi:type="string">Harriswebworks\FAQ\Block\Adminhtml\Faq\Edit\SaveButton</item>
+            <item name="save_and_continue" xsi:type="string">Harriswebworks\FAQ\Block\Adminhtml\Faq\Edit\SaveAndContinueButton</item>
+        </item>
+    </argument>
+    <settings>
+        <layout>
+            <navContainerName>left</navContainerName>
+            <type>tabs</type>
+        </layout>
+        <buttons>
+            <button name="back" class="Harriswebworks\FAQ\Block\Adminhtml\Faq\Edit\BackButton"/>
+            <button name="delete" class="Harriswebworks\FAQ\Block\Adminhtml\Faq\Edit\DeleteButton"/>
+            <button name="reset" class="Harriswebworks\FAQ\Block\Adminhtml\Faq\Edit\ResetButton"/>
+            <button name="save" class="Harriswebworks\FAQ\Block\Adminhtml\Faq\Edit\SaveButton"/>
+            <button name="save_and_continue" class="Harriswebworks\FAQ\Block\Adminhtml\Faq\Edit\SaveAndContinueButton"/>
+        </buttons>
+    </settings>
+    <dataSource name="harriswebworks_article_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Harriswebworks\FAQ\Model\Faq\DataProvider</argument>
+            <argument name="name" xsi:type="string">harriswebworks_article_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">faq_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="harriswebworks/faq/save"/>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label translate="true">General Information</label>
+        </settings>
+        <field name="faq_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">faq_id</item>
+                </item>
+            </argument>
+        </field>
+        <field name="question">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">FAQ Question</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">question</item>
+                </item>
+            </argument>
+        </field>
+        <field name="answer">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">textarea</item>
+                    <item name="label" xsi:type="string" translate="true">FAQ Answer</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">answer</item>
+                </item>
+            </argument>
+        </field>
+        <field name="category_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">FAQ Category ID</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">category_id</item>
+                </item>
+            </argument>
+        </field>
+        <field name="sort_order">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">FAQ Sort Order</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">sort_order</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>
