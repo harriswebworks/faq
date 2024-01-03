@@ -1,0 +1,24 @@
+{
+    "harriswebworks_faq": {
+        "column": {
+            "faq_id": true,
+            "question": true,
+            "answer": true,
+            "category_id": true,
+            "sort_order": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "HARRISWEBWORKS_FAQ_CTGR_ID_HARRISWEBWORKS_FAQ_CTGR_CTGR_ID": true
+        }
+    },
+    "harriswebworks_faq_category": {
+        "column": {
+            "category_id": true,
+            "category_name": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
