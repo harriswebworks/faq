@@ -3,7 +3,7 @@
     <update handle="styles"/>
     <body>
         <referenceContainer name="content">
-            <uiComponent name="harriswebworks_article_form"/>
+            <uiComponent name="harriswebworks_faq_form"/>
         </referenceContainer>
     </body>
 </page>

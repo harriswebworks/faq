@@ -1,11 +1,12 @@
 <?php
-namespace Harriswebworks\FAQ\Controller\Adminhtml\Article\Form;
+namespace Harriswebworks\FAQ\Controller\Adminhtml\Form;
 
 use Magento\Framework\Controller\ResultFactory;
 
 class Edit extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'Harriswebworks_FAQ::article_form_edit';
+
+    const ADMIN_RESOURCE = 'Harriswebworks_FAQ::faq';
     protected $resultPageFactory;
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
