@@ -1,8 +1,8 @@
 <?php
 
-namespace Harriswebworks\FAQ\Controller\Adminhtml\Category;
+namespace Harriswebworks\FAQ\Controller\Adminhtml\Index;
 
-class Category extends \Magento\Backend\App\Action
+class Index extends \Magento\Backend\App\Action
 {
 	protected $resultPageFactory = false;
 
@@ -17,13 +17,13 @@ class Category extends \Magento\Backend\App\Action
 	public function execute()
 	{
 		$resultPage = $this->resultPageFactory->create();
-		$resultPage->getConfig()->getTitle()->prepend((__('Categories')));
+		$resultPage->getConfig()->getTitle()->prepend((__('Admin Grid')));
 
 		return $resultPage;
 	}
 
 	protected function _isAllowed()
 	{
-		return $this->_authorization->isAllowed('Harriswebworks_FAQ::faq_categories');
+		return $this->_authorization->isAllowed('Harriswebworks_FAQ::faq');
 	}
 }

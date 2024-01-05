@@ -1,7 +1,7 @@
 {
     "harriswebworks_faq": {
         "column": {
-            "faq_id": true,
+            "id": true,
             "question": true,
             "answer": true,
             "category_id": true,

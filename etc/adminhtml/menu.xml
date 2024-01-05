@@ -1,7 +1,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Harriswebworks_FAQ::faq" title="Harriswebworks FAQ" translate="title" module="Harriswebworks_FAQ" sortOrder="50" resource="Harriswebworks_FAQ::faq" parent="Harriswebworks_Core::all"/>
-        <add id="Harriswebworks_FAQ::faq_articles" title="Articles" translate="title" module="Harriswebworks_FAQ" parent="Harriswebworks_FAQ::faq" sortOrder="10" action="faq/article/article" resource="Harriswebworks_FAQ::faq"/>
-        <add id="Harriswebworks_FAQ::faq_categories" title="Categories" translate="title" module="Harriswebworks_FAQ" parent="Harriswebworks_FAQ::faq" sortOrder="20" action="faq/category/category" resource="Harriswebworks_FAQ::faq"/>
+        <add id="Harriswebworks_FAQ::faq" title="FAQ" translate="title" module="Harriswebworks_FAQ" sortOrder="50" resource="Harriswebworks_FAQ::faq" parent="Harriswebworks_Core::all" />
+        <add id="Harriswebworks_FAQ::faq_menu" title="Article" translate="title" module="Harriswebworks_FAQ" parent="Harriswebworks_FAQ::faq" sortOrder="10" action="faq/index/index" resource="Harriswebworks_FAQ::faq"/>
     </menu>
 </config>

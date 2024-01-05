@@ -4,14 +4,14 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
 
     <table name="harriswebworks_faq">
-        <column xsi:type="int" name="faq_id" padding="10" unsigned="true" nullable="false" identity="true" comment="FAQ ID" />
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="FAQ ID" />
         <column xsi:type="text" name="question" nullable="false" comment="Question" />
         <column xsi:type="text" name="answer" nullable="false" comment="Answer" />
         <column xsi:type="int" name="category_id" unsigned="true" nullable="false" comment="Category ID" />
         <column xsi:type="smallint" name="sort_order" nullable="true" comment="Sort Order" />
 
         <constraint xsi:type="primary" referenceId="PRIMARY">
-            <column name="faq_id"/>
+            <column name="id"/>
         </constraint>
         <constraint xsi:type="foreign" referenceId="FAQ_CATEGORY_ID" table="harriswebworks_faq" column="category_id" referenceTable="harriswebworks_faq_category" referenceColumn="category_id"/>
     </table>
