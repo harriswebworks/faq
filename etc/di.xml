@@ -6,10 +6,23 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="harriswebworks_faq_category_listing_data_source" xsi:type="string">Harriswebworks\FAQ\Model\ResourceModel\Category\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
     <virtualType name="Harriswebworks\FAQ\Model\ResourceModel\FAQ\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">harriswebworks_faq</argument>
             <argument name="resourceModel" xsi:type="string">Harriswebworks\FAQ\Model\ResourceModel\Faq</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Harriswebworks\FAQ\Model\ResourceModel\Category\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">harriswebworks_faq_category</argument>
+            <argument name="resourceModel" xsi:type="string">Harriswebworks\FAQ\Model\ResourceModel\Category</argument>
         </arguments>
     </virtualType>
 </config>

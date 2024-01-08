@@ -2,5 +2,6 @@
     <menu>
         <add id="Harriswebworks_FAQ::faq" title="FAQ" translate="title" module="Harriswebworks_FAQ" sortOrder="50" resource="Harriswebworks_FAQ::faq" parent="Harriswebworks_Core::all" />
         <add id="Harriswebworks_FAQ::faq_menu" title="Article" translate="title" module="Harriswebworks_FAQ" parent="Harriswebworks_FAQ::faq" sortOrder="10" action="faq/index/index" resource="Harriswebworks_FAQ::faq"/>
+        <add id="Harriswebworks_FAQ::category_menu" title="Category" translate="title" module="Harriswebworks_FAQ" parent="Harriswebworks_FAQ::faq" sortOrder="20" action="faq/category/index" resource="Harriswebworks_FAQ::faq"/>
     </menu>
 </config>
