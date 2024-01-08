@@ -5,6 +5,8 @@ use Harriswebworks\FAQ\Model\ResourceModel\Category\CollectionFactory;
 
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
+    protected $loadedData;
+
     /**
      * @param string $name
      * @param string $primaryFieldName
@@ -30,8 +32,24 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      *
      * @return array
      */
+    // public function getData()
+    // {
+    //     return [];
+    // }
+
     public function getData()
     {
-        return [];
+        if (isset($this->loadedData)) {
+            return $this->loadedData;
+        }
+
+        $categories = $this->collection;
+        $this->loadedData = array();
+
+        foreach ($categories as $category) {
+            $this->loadedData[$category->getCategoryId()]['category_form'] = $category->getData();
+        }
+
+        return $this->loadedData;
     }
 }

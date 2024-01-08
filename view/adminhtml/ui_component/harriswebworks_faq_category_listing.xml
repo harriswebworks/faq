@@ -76,5 +76,15 @@
                 </item>
             </argument>
         </column>
+        <actionsColumn name="actions" class="Harriswebworks\FAQ\Ui\Component\Listing\Column\CategoryActions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">category_id</item>
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                    <item name="label" xsi:type="string" translate="true">Actions</item>
+                </item>
+            </argument>
+        </actionsColumn>
     </columns>
 </listing>
