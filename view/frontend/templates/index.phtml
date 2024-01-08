@@ -11,7 +11,7 @@
             <?php if ($faqItem->getCategoryId() == $category->getCategoryId()) : ?>
                 <li>
                     <strong><?php echo $faqItem->getId() ?>: <?php echo $faqItem->getQuestion(); ?></strong><br>
-                    A: <?php echo $faqItem->getAnswer(); ?>
+                    <span>A: <?php echo $faqItem->getAnswer(); ?></span>
                 </li>
             <?php endif; ?>
         <?php endforeach; ?>
