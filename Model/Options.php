@@ -4,12 +4,15 @@ namespace Harriswebworks\FAQ\Model;
 class Options implements \Magento\Framework\Data\OptionSourceInterface
 {
     protected $_options;
+    protected $storeManager;
     protected $categoryCollection;
 
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
         \Harriswebworks\FAQ\Model\ResourceModel\Category\CollectionFactory $categoryCollection
     ) {
+        $this->storeManager = $storeManager;
         $this->categoryCollection = $categoryCollection;
     }
 
