@@ -6,8 +6,8 @@ use Magento\Ui\Component\Listing\Columns\Column;
 
 class Actions extends Column
 {
-    const URL_PATH_EDIT = 'harriswebworks_faq/form/edit';
-    const URL_PATH_DELETE = 'harriswebworks_faq/form/delete';
+    const URL_PATH_EDIT = 'faq/form/edit';
+    const URL_PATH_DELETE = 'faq/form/delete';
 
     /**
      * @var string

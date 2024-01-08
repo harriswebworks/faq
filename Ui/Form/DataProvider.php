@@ -9,19 +9,22 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      * @param string $name
      * @param string $primaryFieldName
      * @param string $requestFieldName
-     * @param CollectionFactory $employeeCollectionFactory
+     * @param CollectionFactory $faqCollectionFactory
      * @param array $meta
      * @param array $data
      */
+
+    protected $loadedData;
+
     public function __construct(
         $name,
         $primaryFieldName,
         $requestFieldName,
-        CollectionFactory $employeeCollectionFactory,
+        CollectionFactory $faqCollectionFactory,
         array $meta = [],
         array $data = []
     ) {
-        $this->collection = $employeeCollectionFactory->create();
+        $this->collection = $faqCollectionFactory->create();
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
 
@@ -30,8 +33,20 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      *
      * @return array
      */
+
     public function getData()
     {
-        return [];
+        if (isset($this->loadedData)) {
+            return $this->loadedData;
+        }
+
+        $faqs = $this->collection;
+        $this->loadedData = array();
+
+        foreach ($faqs as $faq) {
+            $this->loadedData[$faq->getId()]['faq_form'] = $faq->getData();
+        }
+
+        return $this->loadedData;
     }
 }
