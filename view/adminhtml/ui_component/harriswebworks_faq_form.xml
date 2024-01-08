@@ -66,17 +66,6 @@
             </argument>
         </field>
 
-         <!-- <field name="category_id">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">FAQ Category ID</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">category_id</item>
-                </item>
-            </argument>
-        </field> -->
-
         <field name="sort_order">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

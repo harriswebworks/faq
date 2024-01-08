@@ -40,7 +40,7 @@
     <fieldset name="category_form">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
-                <item name="label" xsi:type="string" translate="true">Form</item>
+                <item name="label" xsi:type="string" translate="true">Category Form</item>
             </item>
         </argument>
 
