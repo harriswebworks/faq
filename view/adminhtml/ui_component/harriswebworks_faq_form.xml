@@ -16,6 +16,7 @@
                 <item name="class" xsi:type="string">primary</item>
                 <item name="url" xsi:type="string">*/form/save</item>
             </item>
+            <item name="back" xsi:type="string">Harriswebworks\FAQ\Block\Adminhtml\Form\Edit\BackButton</item>
         </item>
         <item name="config" xsi:type="array">
             <item name="dataScope" xsi:type="string">data</item>
