@@ -5,7 +5,7 @@
             <item name="provider" xsi:type="string">harriswebworks_faq_form.harriswebworks_faq_form_data_source</item>
             <item name="deps" xsi:type="string">harriswebworks_faq_form.harriswebworks_faq_form_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">Form</item>
+        <item name="label" xsi:type="string" translate="true">FAQ Form</item>
         <item name="layout" xsi:type="array">
             <item name="type" xsi:type="string">tabs</item>
         </item>
@@ -16,6 +16,10 @@
                 <item name="class" xsi:type="string">primary</item>
                 <item name="url" xsi:type="string">*/form/save</item>
             </item>
+        </item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">harriswebworks_faq_form</item>
         </item>
     </argument>
     <dataSource name="harriswebworks_faq_form_data_source">
@@ -65,17 +69,6 @@
                 </item>
             </argument>
         </field>
-
-         <!-- <field name="category_id">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">FAQ Category ID</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">category_id</item>
-                </item>
-            </argument>
-        </field> -->
 
         <field name="sort_order">
             <argument name="data" xsi:type="array">

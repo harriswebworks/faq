@@ -24,19 +24,6 @@
         <bookmark name="bookmarks"/>
         <columnsControls name="columns_controls"/>
         <filterSearch name="fulltext"/>
-        <!-- <filters name="listing_filters">
-            <filterSelect name="store_id" provider="${ $.parentName }" component="Magento_Ui/js/form/element/ui-select" template="ui/grid/filters/elements/ui-select">
-                <settings>
-                    <options class="Harriswebworks\FAQ\Model\Options"/>
-                    <caption translate="true">Select...</caption>
-                    <label translate="true">Store Name</label>
-                    <dataScope>store_id</dataScope>
-                    <imports>
-                        <link name="visible">componentType = column, index = ${ $.index }:visible</link>
-                    </imports>
-                </settings>
-            </filterSelect>
-        </filters> -->
         <paging name="listing_paging"/>
         <exportButton name="export_button"/>
     </listingToolbar>
@@ -89,5 +76,15 @@
                 </item>
             </argument>
         </column>
+        <actionsColumn name="actions" class="Harriswebworks\FAQ\Ui\Component\Listing\Column\CategoryActions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">category_id</item>
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                    <item name="label" xsi:type="string" translate="true">Actions</item>
+                </item>
+            </argument>
+        </actionsColumn>
     </columns>
 </listing>
