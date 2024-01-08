@@ -24,19 +24,6 @@
         <bookmark name="bookmarks"/>
         <columnsControls name="columns_controls"/>
         <filterSearch name="fulltext"/>
-        <!-- <filters name="listing_filters">
-            <filterSelect name="store_id" provider="${ $.parentName }" component="Magento_Ui/js/form/element/ui-select" template="ui/grid/filters/elements/ui-select">
-                <settings>
-                    <options class="Harriswebworks\FAQ\Model\Options"/>
-                    <caption translate="true">Select...</caption>
-                    <label translate="true">Store Name</label>
-                    <dataScope>store_id</dataScope>
-                    <imports>
-                        <link name="visible">componentType = column, index = ${ $.index }:visible</link>
-                    </imports>
-                </settings>
-            </filterSelect>
-        </filters> -->
         <paging name="listing_paging"/>
         <exportButton name="export_button"/>
     </listingToolbar>
