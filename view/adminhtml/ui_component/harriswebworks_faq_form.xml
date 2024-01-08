@@ -66,7 +66,7 @@
             </argument>
         </field>
 
-         <field name="category_id">
+         <!-- <field name="category_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
@@ -75,7 +75,7 @@
                     <item name="source" xsi:type="string">category_id</item>
                 </item>
             </argument>
-        </field>
+        </field> -->
 
         <field name="sort_order">
             <argument name="data" xsi:type="array">
@@ -88,7 +88,7 @@
             </argument>
         </field>
 
-        <!-- <field name="store_id" formElement="select">
+        <field name="category_id" formElement="select">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="sortOrder" xsi:type="string">10</item>
@@ -99,8 +99,8 @@
             </argument>
             <settings>
                 <dataType>text</dataType>
-                <label translate="true">Select Store</label>
-                <dataScope>store_id</dataScope>
+                <label translate="true">Select Category</label>
+                <dataScope>category_id</dataScope>
             </settings>
             <formElements>
                 <select>
@@ -109,6 +109,6 @@
                     </settings>
                 </select>
             </formElements>
-        </field> -->
+        </field>
     </fieldset>
 </form>
