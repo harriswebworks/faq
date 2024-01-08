@@ -1,0 +1,19 @@
+<h1>FAQ</h1>
+
+<?php $faqItems = $block->getFaqItems(); ?>
+<?php $faqCategories = $block->getFaqCategories(); ?>
+
+<?php foreach ($faqCategories as $category) : ?>
+    <h2><?php echo $category->getCategoryName(); ?></h2>
+
+    <ul>
+        <?php foreach ($faqItems as $faqItem) : ?>
+            <?php if ($faqItem->getCategoryId() == $category->getCategoryId()) : ?>
+                <li>
+                    <strong><?php echo $faqItem->getId() ?>: <?php echo $faqItem->getQuestion(); ?></strong><br>
+                    A: <?php echo $faqItem->getAnswer(); ?>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
+<?php endforeach; ?>
