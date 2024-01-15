@@ -16,6 +16,9 @@
                 <item name="class" xsi:type="string">primary</item>
                 <item name="url" xsi:type="string">*/category/save</item>
             </item>
+            <item name="back" xsi:type="string">Harriswebworks\FAQ\Block\Adminhtml\Category\Form\Edit\BackButton</item>
+            <item name="reset" xsi:type="string">Harriswebworks\FAQ\Block\Adminhtml\Category\Form\Edit\ResetButton</item>
+            <item name="save_and_continue" xsi:type="string">Harriswebworks\FAQ\Block\Adminhtml\Category\Form\Edit\SaveAndContinueButton</item>
         </item>
     </argument>
     <dataSource name="harriswebworks_faq_category_form_data_source">
