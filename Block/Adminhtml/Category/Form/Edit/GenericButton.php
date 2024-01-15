@@ -1,6 +1,6 @@
 <?php
 
-namespace Harriswebworks\FAQ\Block\Adminhtml\Form\Edit;
+namespace Harriswebworks\FAQ\Block\Adminhtml\Category\Form\Edit;
 
 use Magento\Search\Controller\RegistryConstants;
 

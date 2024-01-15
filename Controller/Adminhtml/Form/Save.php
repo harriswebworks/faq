@@ -25,6 +25,11 @@ class Save extends \Magento\Backend\App\Action
             ->setData($this->getRequest()->getParam('faq_form'));
 
         $post->save();
+
+        if ($this->getRequest()->getParam('back')) {
+            return $this->resultRedirectFactory->create()->setPath('faq/form/edit', ['id' => $post->getId(), '_current' => true]);
+        }
+
         return $this->resultRedirectFactory->create()->setPath('faq/index/index');
     }
 }
