@@ -46,6 +46,12 @@ class Faq extends \Magento\Framework\View\Element\Template
         return $this->config->getFaqTitle();
     }
 
+    public function isSearchEnabled()
+    {
+        return $this->config->isSearchEnabled();
+    }
+
+
     public function isSidebarEnabled()
     {
         return $this->config->isSidebarEnabled();
