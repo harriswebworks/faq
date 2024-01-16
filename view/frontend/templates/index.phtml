@@ -24,22 +24,30 @@
 <?php endif; ?>
 <div class="hww-faq-all-category-sections">
 <?php foreach ($faqCategories as $category) : ?>
-    <div class="category-section hww-faq-category-section" id="category-<?php echo $category->getCategoryId(); ?>">
-        <h2 class="hww-faq-category-name"><?php echo $category->getCategoryName(); ?></h2>
+    <?php
+        $categoryItems = array_filter($faqItems, function($faqItem) use ($category) {
+            return $faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer();
+        });
+    ?>
 
-        <ul class="hww-faq-item-list">
-        <?php $count = 1; ?>
-            <?php foreach ($faqItems as $faqItem) : ?>
-                <?php if ($faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer()) : ?>
-                    <li class="faq-item hww-faq-item">
-                        <strong class="hww-faq-question">Q<?php echo $count; ?>: <?php echo $faqItem->getQuestion(); ?></strong><br>
-                        <span class="hww-faq-answer">A: <?php echo $faqItem->getAnswer(); ?></span>
-                    </li>
-                    <?php $count++; ?>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+    <?php if (!empty($categoryItems)) : ?>
+        <div class="category-section hww-faq-category-section" id="category-<?php echo $category->getCategoryId(); ?>">
+            <h2 class="hww-faq-category-name"><?php echo $category->getCategoryName(); ?></h2>
+
+            <ul class="hww-faq-item-list">
+            <?php $count = 1; ?>
+                <?php foreach ($categoryItems as $faqItem) : ?>
+                    <?php if ($faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer()) : ?>
+                        <li class="faq-item hww-faq-item">
+                            <strong class="hww-faq-question">Q<?php echo $count; ?>: <?php echo $faqItem->getQuestion(); ?></strong><br>
+                            <span class="hww-faq-answer">A: <?php echo $faqItem->getAnswer(); ?></span>
+                        </li>
+                        <?php $count++; ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
 <?php endforeach; ?>
 </div>
 
@@ -75,7 +83,7 @@
             $('.category-link').on('click', function (event) {
                 event.preventDefault();
                 var categoryId = $(this).data('category-id');
-                
+
                 if (categoryId === 'show-all') {
                     // Show all category sections
                     $('.category-section').show();
