@@ -5,6 +5,7 @@ use Harriswebworks\FAQ\Model\ResourceModel\FAQ\CollectionFactory;
 
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
+    
     /**
      * @param string $name
      * @param string $primaryFieldName

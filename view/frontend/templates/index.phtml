@@ -3,17 +3,73 @@
 <?php $faqItems = $block->getFaqItems(); ?>
 <?php $faqCategories = $block->getFaqCategories(); ?>
 
-<?php foreach ($faqCategories as $category) : ?>
-    <h2><?php echo $category->getCategoryName(); ?></h2>
-
+<div>
+    <h2>Categories</h2>
     <ul>
-        <?php foreach ($faqItems as $faqItem) : ?>
-            <?php if ($faqItem->getCategoryId() == $category->getCategoryId()) : ?>
-                <li>
-                    <strong><?php echo $faqItem->getId() ?>: <?php echo $faqItem->getQuestion(); ?></strong><br>
-                    <span>A: <?php echo $faqItem->getAnswer(); ?></span>
-                </li>
-            <?php endif; ?>
+        <?php foreach ($faqCategories as $category) : ?>
+            <li>
+                <a href="#" class="category-link" data-category-id="<?php echo $category->getCategoryId(); ?>">
+                    <?php echo $category->getCategoryName(); ?>
+                </a>
+            </li>
         <?php endforeach; ?>
     </ul>
+</div>
+<?php foreach ($faqCategories as $category) : ?>
+    <div class="category-section" id="category-<?php echo $category->getCategoryId(); ?>">
+        <h2><?php echo $category->getCategoryName(); ?></h2>
+
+        <ul>
+            <?php foreach ($faqItems as $faqItem) : ?>
+                <?php if ($faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer()) : ?>
+                    <li class="faq-item">
+                        <strong>Q: <?php echo $faqItem->getQuestion(); ?></strong><br>
+                        A: <?php echo $faqItem->getAnswer(); ?>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 <?php endforeach; ?>
+
+<hr>
+
+<!-- Section to Ask a Question -->
+<div>
+    <h2>Ask a Question</h2>
+    <form action="<?php echo $block->getUrl('faq/index/submitQuestion') ?>" method="post" id="ask-question-form">
+        <label for="category">Select Category:</label>
+        <select name="category" id="category" required>
+            <option value="" selected disabled>Select a category</option>
+            <?php foreach ($faqCategories as $category) : ?>
+                <option value="<?php echo $category->getCategoryId(); ?>"><?php echo $category->getCategoryName(); ?></option>
+            <?php endforeach; ?>
+        </select>
+        <br>
+        <label for="question">Your Question:</label>
+        <textarea name="question" id="question" cols="30" rows="5" required></textarea>
+        <br>
+        <input type="submit" value="Submit Question">
+    </form>
+</div>
+
+<script>
+    require(['jquery', 'jquery/ui'], function ($) {
+        $(document).ready(function () {
+            // Hide all category sections initially
+            // $('.category-section').hide();
+
+            // Show the selected category section on category link click
+            $('.category-link').on('click', function (event) {
+                event.preventDefault();
+                var categoryId = $(this).data('category-id');
+                
+                // Hide all other category sections
+                $('.category-section').hide();
+
+                // Show the selected category section
+                $('#category-' + categoryId).show();
+            });
+        });
+    });
+</script>
