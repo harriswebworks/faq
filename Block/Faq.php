@@ -35,4 +35,11 @@ class Faq extends \Magento\Framework\View\Element\Template
     {
         return $this->faqCategoryCollection->getItems();
     }
+    public function isAskQuestionEnabled()
+    {
+        return $this->_scopeConfig->getValue(
+            'faq/ask_question/enable_ask_question',
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+        );
+    }
 }
