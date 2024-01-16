@@ -9,6 +9,7 @@
         <column xsi:type="text" name="answer" nullable="false" comment="Answer" />
         <column xsi:type="int" name="category_id" unsigned="true" nullable="false" comment="Category ID" />
         <column xsi:type="smallint" name="sort_order" nullable="true" comment="Sort Order" />
+        <column xsi:type="boolean" name="is_enabled" nullable="false" default="1" comment="Is Enabled"/>
 
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>
