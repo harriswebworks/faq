@@ -20,24 +20,29 @@
         <?php endforeach; ?>
     </ul>
 </div>
-<?php foreach ($faqCategories as $category) : ?>
-    <div class="category-section" id="category-<?php echo $category->getCategoryId(); ?>">
-        <h2><?php echo $category->getCategoryName(); ?></h2>
 
-        <ul>
-            <?php foreach ($faqItems as $faqItem) : ?>
-                <?php if ($faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer()) : ?>
+
+<?php foreach ($faqCategories as $category) : ?>
+    <?php
+    $categoryItems = array_filter($faqItems, function($faqItem) use ($category) {
+        return $faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer();
+    });
+    ?>
+
+    <?php if (!empty($categoryItems)) : ?>
+        <div class="category-section" id="category-<?php echo $category->getCategoryId(); ?>">
+            <h2><?php echo $category->getCategoryName(); ?></h2>
+            <ul>
+                <?php foreach ($categoryItems as $faqItem) : ?>
                     <li class="faq-item">
                         <strong>Q: <?php echo $faqItem->getQuestion(); ?></strong><br>
                         A: <?php echo $faqItem->getAnswer(); ?>
                     </li>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
 <?php endforeach; ?>
-
-<hr>
 
 <!-- Section to Ask a Question -->
 <?php if ($this->isAskQuestionEnabled()) : ?>
@@ -71,7 +76,7 @@
             $('.category-link').on('click', function (event) {
                 event.preventDefault();
                 var categoryId = $(this).data('category-id');
-                
+
                 if (categoryId === 'show-all') {
                     // Show all category sections
                     $('.category-section').show();
