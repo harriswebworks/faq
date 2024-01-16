@@ -27,7 +27,16 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
+
+            <!-- New Group for Ask a Question Section -->
+            <group id="ask_question" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20">
+                <label>Ask a Question Section</label>
+
+                <field id="enable_ask_question" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Ask a Question Section</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
         </section>
     </system>
 </config>
-
