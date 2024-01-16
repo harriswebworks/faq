@@ -1,70 +1,69 @@
-<h1>FAQ</h1>
+<h1 class="hww-faq-title"><?php echo $this->getFaqTitle(); ?></h1>
 
 <?php $faqItems = $block->getFaqItems(); ?>
 <?php $faqCategories = $block->getFaqCategories(); ?>
 
-<div>
-    <h2>Categories</h2>
-    <ul>
-        <li>
-            <a href="#" class="category-link" data-category-id="show-all">
+<?php if ($this->isSidebarEnabled()) : ?>
+<div class="hww-faq-categories">
+    <h2 class="hww-faq-category-title">Categories</h2>
+    <ul class="hww-faq-category-list">
+        <li class="hww-faq-category-item">
+            <a href="#" class="category-link hww-faq-show-all" data-category-id="show-all">
                 Show All
             </a>
         </li>
         <?php foreach ($faqCategories as $category) : ?>
-            <li>
-                <a href="#" class="category-link" data-category-id="<?php echo $category->getCategoryId(); ?>">
+            <li class="hww-faq-category-item">
+                <a href="#" class="category-link hww-faq-category-link" data-category-id="<?php echo $category->getCategoryId(); ?>">
                     <?php echo $category->getCategoryName(); ?>
                 </a>
             </li>
         <?php endforeach; ?>
     </ul>
 </div>
-
-
+<?php endif; ?>
+<div class="hww-faq-all-category-sections">
 <?php foreach ($faqCategories as $category) : ?>
-    <?php
-    $categoryItems = array_filter($faqItems, function($faqItem) use ($category) {
-        return $faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer();
-    });
-    ?>
+    <div class="category-section hww-faq-category-section" id="category-<?php echo $category->getCategoryId(); ?>">
+        <h2 class="hww-faq-category-name"><?php echo $category->getCategoryName(); ?></h2>
 
-    <?php if (!empty($categoryItems)) : ?>
-        <div class="category-section" id="category-<?php echo $category->getCategoryId(); ?>">
-            <h2><?php echo $category->getCategoryName(); ?></h2>
-            <ul>
-                <?php foreach ($categoryItems as $faqItem) : ?>
-                    <li class="faq-item">
-                        <strong>Q: <?php echo $faqItem->getQuestion(); ?></strong><br>
-                        A: <?php echo $faqItem->getAnswer(); ?>
+        <ul class="hww-faq-item-list">
+        <?php $count = 1; ?>
+            <?php foreach ($faqItems as $faqItem) : ?>
+                <?php if ($faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer()) : ?>
+                    <li class="faq-item hww-faq-item">
+                        <strong class="hww-faq-question">Q<?php echo $count; ?>: <?php echo $faqItem->getQuestion(); ?></strong><br>
+                        <span class="hww-faq-answer">A: <?php echo $faqItem->getAnswer(); ?></span>
                     </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    <?php endif; ?>
+                    <?php $count++; ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 <?php endforeach; ?>
+</div>
+
 
 <!-- Section to Ask a Question -->
 <?php if ($this->isAskQuestionEnabled()) : ?>
-    <div>
-        <h2>Ask a Question</h2>
-        <form action="<?php echo $block->getUrl('faq/index/submitQuestion') ?>" method="post" id="ask-question-form">
-            <label for="category">Select Category:</label>
-            <select name="category" id="category" required>
+    <div class="hww-faq-ask-question-section">
+        <h2 class="hww-faq-ask-question-title">Ask a Question</h2>
+        <form action="<?php echo $block->getUrl('faq/index/submitQuestion') ?>" method="post" id="ask-question-form" class="hww-faq-form">
+            <label for="category" class="hww-faq-label">Select Category:</label>
+            <select name="category" id="category" required class="hww-faq-select">
                 <option value="" selected disabled>Select a category</option>
                 <?php foreach ($faqCategories as $category) : ?>
-                    <option value="<?php echo $category->getCategoryId(); ?>"><?php echo $category->getCategoryName(); ?></option>
+                    <option value="<?php echo $category->getCategoryId(); ?>" class="hww-faq-option"><?php echo $category->getCategoryName(); ?></option>
                 <?php endforeach; ?>
             </select>
             <br>
-            <label for="question">Your Question:</label>
-            <textarea name="question" id="question" cols="30" rows="5" required></textarea>
+            <label for="question" class="hww-faq-label">Your Question:</label>
+            <textarea name="question" id="question" cols="30" rows="5" required class="hww-faq-textarea"></textarea>
             <br>
-            <input type="submit" value="Submit Question">
+            <input type="submit" value="Submit Question" class="hww-faq-submit-button">
         </form>
     </div>
 <?php endif; ?>
-
 
 <script>
     require(['jquery', 'jquery/ui'], function ($) {
@@ -76,7 +75,7 @@
             $('.category-link').on('click', function (event) {
                 event.preventDefault();
                 var categoryId = $(this).data('category-id');
-
+                
                 if (categoryId === 'show-all') {
                     // Show all category sections
                     $('.category-section').show();
