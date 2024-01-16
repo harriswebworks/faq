@@ -3,52 +3,57 @@
 <?php $faqItems = $block->getFaqItems(); ?>
 <?php $faqCategories = $block->getFaqCategories(); ?>
 
+<div id="search-container" class="search-bar">
+    <input type="text" id="search-bar" class="search-text" placeholder="Search for..." />
+    <button type="button" id="search-button" class="search-button" value="Search">Search</button>
+</div>
+
 <?php if ($this->isSidebarEnabled()) : ?>
-<div class="hww-faq-categories">
-    <h2 class="hww-faq-category-title">Categories</h2>
-    <ul class="hww-faq-category-list">
-        <li class="hww-faq-category-item">
-            <a href="#" class="category-link hww-faq-show-all" data-category-id="show-all">
-                Show All
-            </a>
-        </li>
-        <?php foreach ($faqCategories as $category) : ?>
+    <div class="hww-faq-categories">
+        <h2 class="hww-faq-category-title">Categories</h2>
+        <ul class="hww-faq-category-list">
             <li class="hww-faq-category-item">
-                <a href="#" class="category-link hww-faq-category-link" data-category-id="<?php echo $category->getCategoryId(); ?>">
-                    <?php echo $category->getCategoryName(); ?>
+                <a href="#" class="category-link hww-faq-show-all" data-category-id="show-all">
+                    Show All
                 </a>
             </li>
-        <?php endforeach; ?>
-    </ul>
-</div>
+            <?php foreach ($faqCategories as $category) : ?>
+                <li class="hww-faq-category-item">
+                    <a href="#" class="category-link hww-faq-category-link" data-category-id="<?php echo $category->getCategoryId(); ?>">
+                        <?php echo $category->getCategoryName(); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
 <?php endif; ?>
 <div class="hww-faq-all-category-sections">
-<?php foreach ($faqCategories as $category) : ?>
-    <?php
-        $categoryItems = array_filter($faqItems, function($faqItem) use ($category) {
+    <?php foreach ($faqCategories as $category) : ?>
+        <?php
+        $categoryItems = array_filter($faqItems, function ($faqItem) use ($category) {
             return $faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer();
         });
-    ?>
+        ?>
 
-    <?php if (!empty($categoryItems)) : ?>
-        <div class="category-section hww-faq-category-section" id="category-<?php echo $category->getCategoryId(); ?>">
-            <h2 class="hww-faq-category-name"><?php echo $category->getCategoryName(); ?></h2>
+        <?php if (!empty($categoryItems)) : ?>
+            <div class="category-section hww-faq-category-section" id="category-<?php echo $category->getCategoryId(); ?>">
+                <h2 class="hww-faq-category-name"><?php echo $category->getCategoryName(); ?></h2>
 
-            <ul class="hww-faq-item-list">
-            <?php $count = 1; ?>
-                <?php foreach ($categoryItems as $faqItem) : ?>
-                    <?php if ($faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer()) : ?>
-                        <li class="faq-item hww-faq-item">
-                            <strong class="hww-faq-question">Q<?php echo $count; ?>: <?php echo $faqItem->getQuestion(); ?></strong><br>
-                            <span class="hww-faq-answer">A: <?php echo $faqItem->getAnswer(); ?></span>
-                        </li>
-                        <?php $count++; ?>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    <?php endif; ?>
-<?php endforeach; ?>
+                <ul class="hww-faq-item-list">
+                    <?php $count = 1; ?>
+                    <?php foreach ($categoryItems as $faqItem) : ?>
+                        <?php if ($faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer()) : ?>
+                            <li id="faq-item" class="faq-item hww-faq-item">
+                                <strong class="hww-faq-question">Q<?php echo $count; ?>: <?php echo $faqItem->getQuestion(); ?></strong><br>
+                                <span class="hww-faq-answer">A: <?php echo $faqItem->getAnswer(); ?></span>
+                            </li>
+                            <?php $count++; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
 </div>
 
 
@@ -74,14 +79,19 @@
 <?php endif; ?>
 
 <script>
-    require(['jquery', 'jquery/ui'], function ($) {
-        $(document).ready(function () {
+    require(['jquery', 'jquery/ui'], function($) {
+        $(document).ready(function() {
             // Hide all category sections initially
             // $('.category-section').hide();
 
             // Show the selected category section on category link click
-            $('.category-link').on('click', function (event) {
+            $('.category-link').on('click', function(event) {
                 event.preventDefault();
+
+                $(".faq-item").show();
+                $(".hww-faq-category-name").show();
+                $('.faq-item span').contents().unwrap();
+
                 var categoryId = $(this).data('category-id');
 
                 if (categoryId === 'show-all') {
@@ -95,6 +105,58 @@
                     $('#category-' + categoryId).show();
                 }
             });
+
+            // Function to handle search
+            $("#search-button").click(function() {
+                var searchTerm = $("#search-bar").val().toLowerCase();
+
+                // Hide all FAQ items and corresponding category names
+                $(".faq-item").hide();
+                $(".hww-faq-category-name").hide();
+
+                // Iterate through each FAQ item and show if it matches the search term
+                $(".faq-item").filter(function() {
+                    var questionText = $(this).find(".hww-faq-question").text().toLowerCase();
+                    var answerText = $(this).find(".hww-faq-answer").text().toLowerCase();
+
+                    // Check if the search term is present in the question or answer
+                    var isMatch = questionText.includes(searchTerm) || answerText.includes(searchTerm);
+
+                    // Show the corresponding category name if there is a match
+                    if (isMatch) {
+                        var categoryId = $(this).closest(".hww-faq-category-section").attr("id").replace("category-", "");
+                        console.log(categoryId);
+                        $("#category-" + categoryId + " .hww-faq-category-name").show();
+                    }
+                    return isMatch;
+                }).show();
+
+                // Highlight the keyword in the displayed FAQ items
+                $(".faq-item:visible").each(function() {
+                    var questionText = $(this).find(".hww-faq-question").text();
+                    var answerText = $(this).find(".hww-faq-answer").text();
+
+                    // Highlight the keyword in the question and answer
+                    questionText = questionText.replace(new RegExp(searchTerm, "gi"), function(match) {
+                        return "<span class='highlight'>" + match + "</span>";
+                    });
+                    answerText = answerText.replace(new RegExp(searchTerm, "gi"), function(match) {
+                        return "<span class='highlight'>" + match + "</span>";
+                    });
+
+                    // Update the HTML with the highlighted text
+                    $(this).find(".hww-faq-question").html(questionText);
+                    $(this).find(".hww-faq-answer").html("A: " + answerText);
+                });
+            });
         });
+
+
     });
 </script>
+
+<style>
+    .highlight {
+        background-color: yellow;
+    }
+</style>
