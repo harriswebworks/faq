@@ -1,5 +1,5 @@
 <?php
-namespace Harriswebworks\FAQ\Module\Model;
+namespace Harriswebworks\FAQ\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
