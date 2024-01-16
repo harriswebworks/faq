@@ -22,7 +22,9 @@ class Faq extends \Magento\Framework\View\Element\Template
 
     public function getFaqItems()
     {
-        return $this->faqItemCollection->getItems();
+        return $this->faqItemCollection
+            ->addFieldToFilter('is_enabled', 1)
+            ->getItems();
     }
 
     public function getFaqCategories()
