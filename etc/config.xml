@@ -6,7 +6,7 @@
                 <enabled>1</enabled>
                 <faq_title>FAQ</faq_title>
                 <enable_search>1</enable_search>
-                <enable_sidebar>0</enable_sidebar>
+                <enable_sidebar>1</enable_sidebar>
                 <enable_ask_question>1</enable_ask_question>
             </general>
         </faq>
