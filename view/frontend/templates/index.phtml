@@ -6,6 +6,11 @@
 <div>
     <h2>Categories</h2>
     <ul>
+        <li>
+            <a href="#" class="category-link" data-category-id="show-all">
+                Show All
+            </a>
+        </li>
         <?php foreach ($faqCategories as $category) : ?>
             <li>
                 <a href="#" class="category-link" data-category-id="<?php echo $category->getCategoryId(); ?>">
@@ -35,23 +40,26 @@
 <hr>
 
 <!-- Section to Ask a Question -->
-<div>
-    <h2>Ask a Question</h2>
-    <form action="<?php echo $block->getUrl('faq/index/submitQuestion') ?>" method="post" id="ask-question-form">
-        <label for="category">Select Category:</label>
-        <select name="category" id="category" required>
-            <option value="" selected disabled>Select a category</option>
-            <?php foreach ($faqCategories as $category) : ?>
-                <option value="<?php echo $category->getCategoryId(); ?>"><?php echo $category->getCategoryName(); ?></option>
-            <?php endforeach; ?>
-        </select>
-        <br>
-        <label for="question">Your Question:</label>
-        <textarea name="question" id="question" cols="30" rows="5" required></textarea>
-        <br>
-        <input type="submit" value="Submit Question">
-    </form>
-</div>
+<?php if ($this->isAskQuestionEnabled()) : ?>
+    <div>
+        <h2>Ask a Question</h2>
+        <form action="<?php echo $block->getUrl('faq/index/submitQuestion') ?>" method="post" id="ask-question-form">
+            <label for="category">Select Category:</label>
+            <select name="category" id="category" required>
+                <option value="" selected disabled>Select a category</option>
+                <?php foreach ($faqCategories as $category) : ?>
+                    <option value="<?php echo $category->getCategoryId(); ?>"><?php echo $category->getCategoryName(); ?></option>
+                <?php endforeach; ?>
+            </select>
+            <br>
+            <label for="question">Your Question:</label>
+            <textarea name="question" id="question" cols="30" rows="5" required></textarea>
+            <br>
+            <input type="submit" value="Submit Question">
+        </form>
+    </div>
+<?php endif; ?>
+
 
 <script>
     require(['jquery', 'jquery/ui'], function ($) {
@@ -64,11 +72,16 @@
                 event.preventDefault();
                 var categoryId = $(this).data('category-id');
                 
-                // Hide all other category sections
-                $('.category-section').hide();
+                if (categoryId === 'show-all') {
+                    // Show all category sections
+                    $('.category-section').show();
+                } else {
+                    // Hide all other category sections
+                    $('.category-section').hide();
 
-                // Show the selected category section
-                $('#category-' + categoryId).show();
+                    // Show the selected category section
+                    $('#category-' + categoryId).show();
+                }
             });
         });
     });
