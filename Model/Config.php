@@ -8,6 +8,7 @@ class Config
     const XML_PATH_ENABLED = 'faq/general/enabled';
     const XML_PATH_FAQ_TITLE = 'faq/general/faq_title';
     const XML_PATH_ENABLE_SIDEBAR = 'faq/general/enable_sidebar';
+    const XML_PATH_ENABLE_QUESTION = 'faq/general/enable_ask_question';
 
     protected $scopeConfig;
 
@@ -29,5 +30,9 @@ class Config
     public function isSidebarEnabled()
     {
         return $this->scopeConfig->isSetFlag(self::XML_PATH_ENABLE_SIDEBAR);
+    }
+
+    public function isAskQuestionEnabled(){
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_ENABLE_QUESTION);
     }
 }
