@@ -45,7 +45,7 @@
                         <?php if ($faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer()) : ?>
                             <li id="faq-item" class="faq-item hww-faq-item">
                                 <strong class="hww-faq-question">Q<?php echo $count; ?>: <?php echo $faqItem->getQuestion(); ?></strong><br>
-                                <span class="hww-faq-answer">A: <?php echo $faqItem->getAnswer(); ?></span>
+                                <span class="hww-faq-answer"><?php echo $faqItem->getAnswer(); ?></span>
                             </li>
                             <?php $count++; ?>
                         <?php endif; ?>
@@ -137,6 +137,8 @@
                         var categoryId = $(this).closest(".hww-faq-category-section").attr("id").replace("category-", "");
                         $("#category-" + categoryId + " .hww-faq-category-name").show();
                         $(this).find(".hww-faq-answer").show();
+                        $(".faq-item").addClass("active")
+
                     }
                     return isMatch;
                 }).show();
