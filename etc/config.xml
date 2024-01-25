@@ -8,6 +8,7 @@
                 <enable_search>1</enable_search>
                 <enable_sidebar>1</enable_sidebar>
                 <enable_ask_question>1</enable_ask_question>
+                <faq_url_key>faq</faq_url_key>
             </general>
         </faq>
     </default>
