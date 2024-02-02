@@ -13,6 +13,7 @@
             </argument>
         </arguments>
     </type>
+
     <virtualType name="Harriswebworks\FAQ\Model\ResourceModel\FAQ\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">harriswebworks_faq</argument>
