@@ -3,10 +3,13 @@
 <?php $faqItems = $block->getFaqItems(); ?>
 <?php $faqCategories = $block->getFaqCategories(); ?>
 
+
+<?php if($this->isSearchEnabled()) { ?>
 <div id="search-container" class="search-bar">
     <input type="text" id="search-bar" class="search-text" placeholder="Search for..." />
     <button type="button" id="search-button" class="search-button" value="Search">Search</button>
 </div>
+<?php } ?>
 
 <?php if ($this->isSidebarEnabled()) : ?>
     <div class="hww-faq-categories">
@@ -164,9 +167,3 @@
         });
     });
 </script>
-
-<style>
-    .highlight {
-        background-color: yellow;
-    }
-</style>
