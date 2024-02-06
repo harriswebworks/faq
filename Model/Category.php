@@ -10,8 +10,4 @@ class Category extends AbstractModel
     {
         $this->_init(\Harriswebworks\FAQ\Model\ResourceModel\Category::class);
     }
-    public function create(array $data = [])
-    {
-        return [];
-    }
 }

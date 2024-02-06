@@ -35,10 +35,10 @@ class Faq extends AbstractModel
         return $this->setData('is_enabled', $isEnabled);
     }
 
-    public function create(array $data = [])
-    {
-        $this->setData($data);
-        $this->save();
-        return $this;
-    }
+    // public function create(array $data = [])
+    // {
+    //     $this->setData($data);
+    //     $this->save();
+    //     return $this;
+    // }
 }
