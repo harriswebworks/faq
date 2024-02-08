@@ -32,8 +32,6 @@ class Edit extends \Magento\Backend\App\Action
     {
         $id = $this->getRequest()->getParam('category_id');
 
-        $categoryModel = $this->categoryCollection->load($id);
-
         $relatedRecords = $this->faqCollection->getCollection()->addFieldToFilter('category_id', $id);
 
         if ($relatedRecords->getSize() > 0) {
