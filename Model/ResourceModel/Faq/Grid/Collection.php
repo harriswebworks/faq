@@ -1,6 +1,6 @@
 <?php
 
-namespace Harriswebworks\FAQ\Model\ResourceModel\FAQ\Grid;
+namespace Harriswebworks\FAQ\Model\ResourceModel\Faq\Grid;
 
 use Magento\Framework\Data\Collection\Db\FetchStrategyInterface as FetchStrategy;
 use Magento\Framework\Data\Collection\EntityFactoryInterface as EntityFactory;

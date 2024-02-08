@@ -31,7 +31,7 @@
             <argument name="name" xsi:type="string">harriswebworks_faq_form_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
-            <argument name="collectionFactory" xsi:type="object">Harriswebworks\FAQ\Model\ResourceModel\FAQ\CollectionFactory</argument>
+            <argument name="collectionFactory" xsi:type="object">Harriswebworks\FAQ\Model\ResourceModel\Faq\CollectionFactory</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="submit_url" xsi:type="url" path="faq/form/save"/>

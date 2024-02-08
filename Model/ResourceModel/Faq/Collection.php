@@ -1,6 +1,6 @@
 <?php
 
-namespace Harriswebworks\FAQ\Model\ResourceModel\FAQ;
+namespace Harriswebworks\FAQ\Model\ResourceModel\Faq;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 use Harriswebworks\FAQ\Model\Faq;

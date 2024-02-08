@@ -2,7 +2,7 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="harriswebworks_faq_listing_data_source" xsi:type="string">Harriswebworks\FAQ\Model\ResourceModel\FAQ\Grid\Collection</item>
+                <item name="harriswebworks_faq_listing_data_source" xsi:type="string">Harriswebworks\FAQ\Model\ResourceModel\Faq\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
