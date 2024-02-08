@@ -3,7 +3,6 @@
 namespace Harriswebworks\FAQ\Controller\Adminhtml\Category;
 
 use Magento\Framework\Controller\ResultFactory;
-use Harriswebworks\FAQ\Model\Category as Category;
 use Harriswebworks\FAQ\Model\Faq as Faq;
 
 class Edit extends \Magento\Backend\App\Action
@@ -11,17 +10,14 @@ class Edit extends \Magento\Backend\App\Action
 
     const ADMIN_RESOURCE = 'Harriswebworks_FAQ::category';
     protected $resultPageFactory;
-    private $categoryCollection;
     private $faqCollection;
 
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
-        Category $categoryCollection,
         Faq $faqCollection
     ) {
         $this->resultPageFactory = $resultPageFactory;
-        $this->categoryCollection = $categoryCollection;
         $this->faqCollection = $faqCollection;
         parent::__construct($context);
     }
