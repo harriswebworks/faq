@@ -1,11 +1,11 @@
 <?php
 namespace Harriswebworks\FAQ\Ui\Form;
 
-use Harriswebworks\FAQ\Model\ResourceModel\FAQ\CollectionFactory;
+use Harriswebworks\FAQ\Model\ResourceModel\Faq\CollectionFactory;
 
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
-    
+
     /**
      * @param string $name
      * @param string $primaryFieldName

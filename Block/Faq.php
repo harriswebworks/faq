@@ -1,7 +1,7 @@
 <?php
 namespace Harriswebworks\FAQ\Block;
 
-use Harriswebworks\FAQ\Model\ResourceModel\FAQ\Collection as FaqItemCollection;
+use Harriswebworks\FAQ\Model\ResourceModel\Faq\Collection as FaqItemCollection;
 use Harriswebworks\FAQ\Model\ResourceModel\Category\Collection as FaqCategoryCollection;
 use Harriswebworks\FAQ\Model\Config;
 

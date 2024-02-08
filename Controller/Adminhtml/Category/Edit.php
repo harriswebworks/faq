@@ -1,18 +1,28 @@
 <?php
+
 namespace Harriswebworks\FAQ\Controller\Adminhtml\Category;
 
 use Magento\Framework\Controller\ResultFactory;
+use Harriswebworks\FAQ\Model\Category as Category;
+use Harriswebworks\FAQ\Model\Faq as Faq;
 
 class Edit extends \Magento\Backend\App\Action
 {
 
     const ADMIN_RESOURCE = 'Harriswebworks_FAQ::category';
     protected $resultPageFactory;
+    private $categoryCollection;
+    private $faqCollection;
+
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory)
-    {
+        \Magento\Framework\View\Result\PageFactory $resultPageFactory,
+        Category $categoryCollection,
+        Faq $faqCollection
+    ) {
         $this->resultPageFactory = $resultPageFactory;
+        $this->categoryCollection = $categoryCollection;
+        $this->faqCollection = $faqCollection;
         parent::__construct($context);
     }
     /**
@@ -20,7 +30,21 @@ class Edit extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-        return $resultPage;
+        $id = $this->getRequest()->getParam('category_id');
+
+        $categoryModel = $this->categoryCollection->load($id);
+
+        $relatedRecords = $this->faqCollection->getCollection()->addFieldToFilter('category_id', $id);
+
+        if ($relatedRecords->getSize() > 0) {
+            $this->messageManager->addError(__('Cannot edit this record as this category is used in faq.'));
+            $resultRedirect = $this->resultRedirectFactory->create();
+            return $resultRedirect->setPath('*/*/index', ['category_id' => $id, '_current' => true]);
+        } else {
+            $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
+            return $resultPage;
+        }
+
+
     }
 }
