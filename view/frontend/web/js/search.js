@@ -2,8 +2,6 @@ define(['jquery'], function ($) {
     'use strict';
     $("#search-button").click(function () {
 
-        console.log("Searching...");
-
         var searchTerm = $("#search-bar").val().toLowerCase();
 
         // Hide all FAQ items, answers, and corresponding category names
@@ -25,7 +23,6 @@ define(['jquery'], function ($) {
                 $("#category-" + categoryId + " .hww-faq-category-name").show();
                 $(this).find(".hww-faq-answer").show();
                 $(".faq-item").addClass("active")
-
             }
             return isMatch;
         }).show();
@@ -45,7 +42,7 @@ define(['jquery'], function ($) {
 
             // Update the HTML with the highlighted text
             $(this).find(".hww-faq-question").html(questionText);
-            $(this).find(".hww-faq-answer").html("A: " + answerText);
+            $(this).find(".hww-faq-answer").html(answerText);
         });
     });
 });
