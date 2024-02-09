@@ -38,7 +38,5 @@ class Edit extends \Magento\Backend\App\Action
             $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
             return $resultPage;
         }
-
-
     }
 }
