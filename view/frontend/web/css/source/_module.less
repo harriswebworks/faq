@@ -1,66 +1,63 @@
 & when (@media-common =true) {
 
-    //search
 
-    /* Search Container */
+    .hww-faq-title {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    /*Search Container*/
     #search-container {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        margin-bottom: 20px;
-    }
+        margin-bottom: 40px;
 
-    /* Search Text Input */
-    input {
-        &.search-text {
-            padding: 10px;
-            border: 1px solid #ccc;
+        /* Search Text Input */
+        input {
+            &.search-text {
+                padding: 0 10px;
+                border: 1px solid #ccc;
+                border-radius: 0;
+                width: 100%;
+                height: 40px;
+                &:focus{
+                    box-shadow: none;
+                }
+            }
+        }
+
+        /* Search Button */
+        .search-button {
+            padding: 12px 50px;
+            background-color: #818181;
+            color: #fff;
+            border: none;
+            cursor: pointer;
             border-radius: 0;
-            width: 100%;
-            height: 34px;
+
+            &:hover {
+                border: 0;
+            }
         }
     }
 
-    /* Search Button */
-    .search-button {
-        padding: 9px;
-        background-color: #818181;
-        /* Adjust the color as needed */
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        border-radius: 0;
-
-        &:hover {
-            border: 0;
-        }
-    }
-
-    .hww-faq-title {
-        text-align: center;
-    }
-
-    .hww-faq-category-name {
-        background: #E7E7E7;
-        padding: 20px;
-        border-radius: 5px;
-        font-weight: 600;
-    }
-
-    .hww-faq-categories,
-    .hww-faq-all-category-sections {
-        display: inline-block;
-    }
 
     .hww-faq-categories {
         vertical-align: top;
         width: 25%;
         text-transform: uppercase;
+        border: 1px solid #E7E7E7;
+        display: inline-block;
+
 
         h2 {
             &.hww-faq-category-title {
                 font-size: 20px;
                 font-weight: 700;
+                background-color: #E7E7E7;
+                margin: 0;
+                padding: 15px 10px;
             }
         }
 
@@ -69,52 +66,38 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            width: 250px;
-            /* Set the desired width for your vertical tabs */
+
+            .hww-faq-category-item {
+                margin-bottom: 0;
+                border-bottom: 1px solid #E7E7E7;
+
+                .category-link {
+                    display: block;
+                    padding: 10px;
+                    text-decoration: none;
+                    color: #000;
+                    text-transform: capitalize;
+                    -webkit-transition: .3s;
+                    -o-transition: .3s;
+                    transition: .3s;
+                    &:hover {
+                        background-color: #f4f4f4;
+                    }
+                }
+
+                &:last-child{
+                    border-bottom: 0;
+                }
+
+                &.active {
+                    .category-link {
+                        background-color: #007BFF;
+                        color: #fff;
+                    }
+                }
+
+            }
         }
-
-        .hww-faq-category-item {
-            margin-bottom: 5px;
-        }
-
-        .category-link {
-            display: block;
-            padding: 10px;
-            text-decoration: none;
-            color: #333;
-            background-color: #f4f4f4;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .category-link:hover {
-            background-color: #ddd;
-        }
-
-        /* Active Tab Styles */
-        .hww-faq-category-item.active .category-link {
-            background-color: #007BFF;
-            color: #fff;
-        }
-
-        // .hww-faq-category-list {
-        //     .hww-faq-category-title {
-        //         border-bottom: 1px solid black;
-
-        //     }
-
-        //     .hww-faq-category-item {
-        //         border-bottom: 2px solid black;
-
-        //         .category-link {
-        //             color: black;
-        //             font-size: 24px;
-        //             line-height: 30px;
-        //             text-decoration: none;
-        //             padding-bottom: 5px;
-        //         }
-        //     }
-        // }
     }
 
     .hww-faq-all-category-sections {
@@ -122,54 +105,69 @@
         margin-left: 30px;
         float: right;
 
-    }
+        .hww-faq-category-section{
+            .hww-faq-category-name {
+                background: #E7E7E7;
+                padding: 20px;
+                margin: 0;
+                /*border-radius: 5px;*/
+                font-weight: 600;
+            }
+            .hww-faq-item-list{
+                margin: 10px 0 0;
+                list-style: none;
+                padding: 0 0 20px;
 
-    .hww-faq-category-list {
-        padding-left: 20px;
-    }
+                .hww-faq-item {
+                    position: relative;
+                    margin-bottom: 8px;
+                    cursor: pointer;
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        top: 12px;
+                        right: 10px;
+                        background-image: url("../../images/up-arrow.png");
+                        width: 16px;
+                        height: 16px;
+                        background-size: cover;
+                        transition: 0.5s;
+                    }
 
-    .hww-faq-item-list {
-        .hww-faq-item {
-            h3{
-                &.hww-faq-question {
-                    font-size: 20px;
-                    font-weight: 500;
+                    &.active {
+                        &:after {
+                            transform: rotate(180deg);
+                            transition: 0.5s;
+                        }
+                    }
+
+                    h3{
+                        margin: 0;
+                        padding: 12px 10px;
+                        background-color: #f4f4f4;
+                        transition: .3s;
+                        /*border-bottom: 1px solid black;*/
+
+                        &:hover{
+                            background-color: #E7E7E7
+                        }
+
+                        &.hww-faq-question {
+                            font-size: 20px;
+                            line-height: 1;
+                            font-weight: 500;
+                        }
+                    }
+
+
+                    .hww-faq-answer {
+                        display: block;
+                        padding: 10px 20px;
+                        margin-bottom: 15px;
+                        background-color: #f6f6f691;
+                    }
                 }
             }
-
-
-            .hww-faq-answer {
-                display: block;
-            }
-        }
-    }
-
-    .hww-faq-item {
-        position: relative;
-
-        &:after {
-            content: url("../../images/up-arrow.png");
-            width: 24px;
-            height: 24px;
-            position: absolute;
-            top: 0;
-            right: 10px;
-            transition: 0.5s;
-        }
-
-        &.active {
-            &:after {
-                transform: rotate(180deg);
-                transition: 0.5s;
-            }
-        }
-    }
-
-    .hww-faq-item-list {
-        .hww-faq-item {
-            border-bottom: 1px solid black;
-            margin: 20px 0;
-            padding: 0 0 20px;
         }
     }
 
@@ -186,14 +184,18 @@
 
 // Desktop.
 
-.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__xl) {}
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__xl) {
+}
 
 //_______________
 
-.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__l) {}
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__l) {
+}
 
 
-.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {}
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+}
 
 // Mobile
-.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__m) {}
+.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__m) {
+}
