@@ -11,29 +11,29 @@
     }
 
     /* Search Text Input */
-    .search-text {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 200px;
-        /* Adjust the width as needed */
+    input {
+        &.search-text {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            width: 100%;
+            height: 34px;
+        }
     }
 
     /* Search Button */
     .search-button {
         padding: 9px;
-        background-color: #007BFF;
+        background-color: #818181;
         /* Adjust the color as needed */
         color: #fff;
         border: none;
         cursor: pointer;
-        &:hover{
+        border-radius: 0;
+
+        &:hover {
             border: 0;
         }
-    }
-
-    .search-bar {
-        height: 34px;
     }
 
     .hww-faq-title {
@@ -43,6 +43,8 @@
     .hww-faq-category-name {
         background: #E7E7E7;
         padding: 20px;
+        border-radius: 5px;
+        font-weight: 600;
     }
 
     .hww-faq-categories,
@@ -55,29 +57,70 @@
         width: 25%;
         text-transform: uppercase;
 
-        .hww-faq-category-list {
-            .hww-faq-category-title {
-                border-bottom: 1px solid black;
-
-            }
-
-            .hww-faq-category-item {
-                border-bottom: 2px solid black;
-
-                .category-link {
-                    color: black;
-                    font-size: 24px;
-                    line-height: 30px;
-                    text-decoration: none;
-                    padding-bottom: 5px;
-                }
+        h2 {
+            &.hww-faq-category-title {
+                font-size: 20px;
+                font-weight: 700;
             }
         }
+
+        /* Vertical Tab Styles */
+        .hww-faq-category-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 250px;
+            /* Set the desired width for your vertical tabs */
+        }
+
+        .hww-faq-category-item {
+            margin-bottom: 5px;
+        }
+
+        .category-link {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .category-link:hover {
+            background-color: #ddd;
+        }
+
+        /* Active Tab Styles */
+        .hww-faq-category-item.active .category-link {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        // .hww-faq-category-list {
+        //     .hww-faq-category-title {
+        //         border-bottom: 1px solid black;
+
+        //     }
+
+        //     .hww-faq-category-item {
+        //         border-bottom: 2px solid black;
+
+        //         .category-link {
+        //             color: black;
+        //             font-size: 24px;
+        //             line-height: 30px;
+        //             text-decoration: none;
+        //             padding-bottom: 5px;
+        //         }
+        //     }
+        // }
     }
 
     .hww-faq-all-category-sections {
         width: 70%;
         margin-left: 30px;
+        float: right;
 
     }
 
@@ -87,9 +130,13 @@
 
     .hww-faq-item-list {
         .hww-faq-item {
-            .hww-faq-question {
-                font-size: 20px;
+            h3{
+                &.hww-faq-question {
+                    font-size: 20px;
+                    font-weight: 500;
+                }
             }
+
 
             .hww-faq-answer {
                 display: block;
@@ -124,7 +171,11 @@
             margin: 20px 0;
             padding: 0 0 20px;
         }
+    }
 
+    .hww-faq-ask-question-section {
+        display: inline-block;
+        width: 100%;
     }
 
     .highlight {
