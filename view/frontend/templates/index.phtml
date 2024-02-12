@@ -59,11 +59,13 @@
     <?php endforeach; ?>
 </div>
 
-
 <!-- Section to Ask a Question -->
 <?php if ($this->isAskQuestionEnabled()) : ?>
+    <button id="open-popup-button" class="hww-faq-open-popup-button">Open Popup</button>
+<?php endif; ?>
+
+<div id="popup-modal" style="display: none;">
     <div class="hww-faq-ask-question-section">
-        <h2 class="hww-faq-ask-question-title">Ask a Question</h2>
         <form action="<?php echo $block->getUrl('faq/index/submitQuestion') ?>" method="post" id="ask-question-form" class="hww-faq-form">
             <label for="category" class="hww-faq-label">Select Category:</label>
             <select name="category" id="category" required class="hww-faq-select">
@@ -79,12 +81,9 @@
             <input type="submit" value="Submit Question" class="hww-faq-submit-button">
         </form>
     </div>
-<?php endif; ?>
-
+</div>
 <script type="text/javascript">
-    require(['jquery', 'Harriswebworks_FAQ/js/faq'], function ($) {
-    });
-
-    require(['jquery', 'Harriswebworks_FAQ/js/search'], function ($) {
-    });
+    require(['jquery', 'Harriswebworks_FAQ/js/faq'], function($) {});
+    require(['jquery', 'Harriswebworks_FAQ/js/search'], function($) {});
+    require(['jquery', 'Harriswebworks_FAQ/js/askPopup'], function($) {});
 </script>
