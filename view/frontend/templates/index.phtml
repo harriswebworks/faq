@@ -47,8 +47,8 @@
                     <?php foreach ($categoryItems as $faqItem) : ?>
                         <?php if ($faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer()) : ?>
                             <li id="faq-item" class="faq-item hww-faq-item">
-                                <strong class="hww-faq-question">Q<?php echo $count; ?>: <?php echo $faqItem->getQuestion(); ?></strong>
-                                <span class="hww-faq-answer"><?php echo $faqItem->getAnswer(); ?></span>
+                                <h3 class="hww-faq-question">Q<?php echo $count; ?>: <?php echo $faqItem->getQuestion(); ?></h3>
+                                <span class="hww-faq-answer">A: <?php echo $faqItem->getAnswer(); ?></span>
                             </li>
                             <?php $count++; ?>
                         <?php endif; ?>
