@@ -1,8 +1,20 @@
 define(['jquery'], function ($) {
     'use strict';
-    $("#search-button").click(function () {
+    function performSearch() {
 
         var searchTerm = $("#search-bar").val().toLowerCase();
+
+        // Check if searchTerm is null or empty
+        if (!searchTerm) {
+            // Set everything to default
+            $(".faq-item").show();
+            $(".hww-faq-category-name").show();
+            $('.hww-faq-answer').hide();
+            $(".faq-item").removeClass("active");
+            $("span").removeClass("highlight");
+
+            return;
+        }
 
         // Hide all FAQ items, answers, and corresponding category names
         $(".faq-item").hide();
@@ -44,5 +56,14 @@ define(['jquery'], function ($) {
             $(this).find(".hww-faq-question").html(questionText);
             $(this).find(".hww-faq-answer").html(answerText);
         });
+    }
+
+    $("#search-button").click(performSearch);
+
+    // Keypress event for Enter key on search bar
+    $("#search-bar").keypress(function (event) {
+        if (event.which === 13) { // Enter key
+            performSearch();
+        }
     });
 });
