@@ -11,6 +11,7 @@ define(['jquery'], function ($) {
         $(".faq-item").removeClass("active")
         $(".hww-faq-category-name").show();
         $('.hww-faq-answer').hide();
+        $("span").removeClass("highlight");
 
         var categoryId = $(this).data('category-id');
 
