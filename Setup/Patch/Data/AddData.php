@@ -53,9 +53,9 @@ class AddData implements DataPatchInterface, PatchVersionInterface
 
         // Add sample data for faq_category table
         $categoryData = [
-            ['category_name' => 'Sample Category 1'],
-            ['category_name' => 'Sample Category 2'],
-            ['category_name' => 'Sample Category 3']
+            ['category_name' => 'Sales'],
+            ['category_name' => 'Store'],
+            ['category_name' => 'Documentation']
         ];
 
         foreach ($categoryData as $category){
@@ -64,29 +64,34 @@ class AddData implements DataPatchInterface, PatchVersionInterface
             $faqCat->save();
         }
 
-
-
         // Add sample data for faq table
         $faqData = [
             [
-                'question' => 'Sample Question',
-                'answer' => 'Sample Answer',
-                'category_id' => $faqCat->getId(),
-                'sort_order' => 1,
+                'question' => 'How can I ensure the security of my Magento store?',
+                'answer' => 'Magento regularly releases security patches and updates. It\'s crucial to keep your Magento installation, themes, and extensions up to date. Additionally, implementing secure hosting practices, using strong passwords, and monitoring for suspicious activities are essential for maintaining security.',
+                'category_id' => 2,
+                'sort_order' => 10,
                 'is_enabled' => 1
             ],
             [
-                'question' => 'Sample Question',
-                'answer' => 'Sample Answer',
-                'category_id' => $faqCat->getId(),
-                'sort_order' => 1,
+                'question' => 'Can Magento handle multiple languages and currencies for international sales?',
+                'answer' => 'Yes, Magento supports multi-language and multi-currency functionality. You can configure your store to cater to a global audience by setting up different languages, currencies, and tax rules based on the location of your customers.',
+                'category_id' => 1,
+                'sort_order' => 20,
                 'is_enabled' => 1,
             ],
             [
-                'question' => 'Sample Question',
-                'answer' => 'Sample Answer',
-                'category_id' => $faqCat->getId(),
-                'sort_order' => 1,
+                'question' => 'Can I customize the look and feel of my Magento store?',
+                'answer' => 'Yes, Magento allows extensive customization of the store\'s appearance. You can choose from various themes, or create your own custom theme. Additionally, you can modify templates, layouts, and styles to tailor the design to your brand.',
+                'category_id' => 2,
+                'sort_order' => 30,
+                'is_enabled' => 1,
+            ],
+            [
+                'question' => 'Where can I find support and documentation for Magento?',
+                'answer' => 'The official Magento website provides extensive documentation, user guides, and forums for community support. You can also explore online forums, blogs, and third-party resources for additional insights and assistance.',
+                'category_id' => 3,
+                'sort_order' => 40,
                 'is_enabled' => 1,
             ]
 

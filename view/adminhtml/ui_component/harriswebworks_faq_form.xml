@@ -83,7 +83,6 @@
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="label" xsi:type="string" translate="true">FAQ Answer</item>
-                    <!-- <item name="formElement" xsi:type="string">textarea</item> -->
                     <item name="source" xsi:type="string">answer</item>
                     <item name="wysiwygConfigData" xsi:type="array">
                         <item name="is_pagebuilder_enabled" xsi:type="boolean">false</item>
@@ -91,7 +90,7 @@
                         <item name="height" xsi:type="string">200px</item>
                         <item name="add_variables" xsi:type="boolean">true</item>
                         <item name="add_widgets" xsi:type="boolean">true</item>
-                        <item name="add_images" xsi:type="boolean">true</item>
+                        <item name="add_images" xsi:type="boolean">false</item>
                         <item name="add_directives" xsi:type="boolean">true</item>
                     </item>
                 </item>
