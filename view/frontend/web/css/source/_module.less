@@ -11,7 +11,9 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
+        flex-wrap: wrap;
         margin-bottom: 40px;
+        width: 100%;
 
         /* Search Text Input */
         input {
@@ -21,6 +23,7 @@
                 border-radius: 0;
                 width: 100%;
                 height: 40px;
+                width: calc(~"100% - 160px");
 
                 &::placeholder {
                     color: #000;
@@ -40,6 +43,8 @@
             border: none;
             cursor: pointer;
             border-radius: 0;
+            height: 40px;
+            width: 160px;
 
             &:hover {
                 border: 0;
