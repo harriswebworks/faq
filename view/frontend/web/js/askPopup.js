@@ -7,13 +7,8 @@ define([
         responsive: true,
         innerScroll: true,
         title: 'Ask a Question',
-        buttons: [{
-            text: $.mage.__('Close'),
-            class: 'action-primary',
-            click: function () {
-                this.closeModal();
-            }
-        }]
+        
+        buttons: []
     };
 
     var popup = modal(options, $('#popup-modal'));
