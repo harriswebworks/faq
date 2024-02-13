@@ -21,6 +21,11 @@
                 border-radius: 0;
                 width: 100%;
                 height: 40px;
+
+                &::placeholder {
+                    color: #000;
+                }
+
                 &:focus{
                     box-shadow: none;
                 }
@@ -29,7 +34,7 @@
 
         /* Search Button */
         .search-button {
-            padding: 12px 50px;
+            padding: 12px 25px;
             background-color: #818181;
             color: #fff;
             border: none;
@@ -45,10 +50,10 @@
 
     .hww-faq-categories {
         vertical-align: top;
-        width: 25%;
-        text-transform: uppercase;
+        display: block;
+        text-transform: capitalize;
         border: 1px solid #E7E7E7;
-        display: inline-block;
+        margin-bottom: 30px;
 
 
         h2 {
@@ -101,31 +106,36 @@
     }
 
     .hww-faq-all-category-sections {
-        width: 70%;
-        margin-left: 30px;
-        float: right;
+        /*        width: 70%;
+                margin-left: 30px;
+                float: right;*/
 
         .hww-faq-category-section{
+            border: 1px solid #d0d0d0;
+            margin-bottom: 15px;
+
             .hww-faq-category-name {
-                background: #E7E7E7;
+                background-color: #E7E7E7;
+
                 padding: 20px;
                 margin: 0;
                 /*border-radius: 5px;*/
                 font-weight: 600;
             }
             .hww-faq-item-list{
-                margin: 10px 0 0;
+                margin: 0;
                 list-style: none;
-                padding: 0 0 20px;
+                padding: 0;
 
                 .hww-faq-item {
                     position: relative;
-                    margin-bottom: 8px;
+                    border-top: 1px solid #ddd;
+                    margin-bottom: 0;
                     cursor: pointer;
                     &:after {
                         content: "";
                         position: absolute;
-                        top: 12px;
+                        top: 19px;
                         right: 10px;
                         background-image: url("../../images/up-arrow.png");
                         width: 16px;
@@ -143,19 +153,20 @@
 
                     h3{
                         margin: 0;
-                        padding: 12px 10px;
+                        padding: 15px 10px;
                         background-color: #f4f4f4;
                         transition: .3s;
                         /*border-bottom: 1px solid black;*/
 
                         &:hover{
-                            background-color: #E7E7E7
+                            background-color: #E7E7E7;
                         }
 
                         &.hww-faq-question {
-                            font-size: 20px;
-                            line-height: 1;
+                            font-size: 16px;
+                            line-height: 20px;
                             font-weight: 500;
+                            padding-right: 25px;
                         }
                     }
 
@@ -165,6 +176,7 @@
                         padding: 10px 20px;
                         margin-bottom: 15px;
                         background-color: #f6f6f691;
+                        margin-bottom: 0;
                     }
                 }
             }
@@ -179,10 +191,131 @@
     .highlight {
         background-color: yellow;
     }
+
+    .ask-btn-area {
+        text-align: center;
+        clear: both;
+
+        .hww-faq-open-popup-button {
+            border: 0;
+            border-radius: 0;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 50px;
+            font-size: 20px;
+            line-height: 26px;
+            -webkit-transition: .3s;
+            -o-transition: .3s;
+            transition: .3s;
+            margin: 20px auto 0;
+
+            &:hover{
+                background-color: #818181;
+                color: #fff;
+                border: 0;
+            }
+
+        }
+    }
+
+
+    .faq-index-index {
+        .modal-popup{
+            .modal-inner-wrap{
+                max-width: 700px;
+                margin-top: 10%;
+
+                .modal-title {
+                    text-align: center;
+                    text-transform: capitalize;
+                    font-weight: bold;
+                }
+
+                .hww-faq-form{
+                    .hww-faq-label {
+                        font-size: 16px;
+                        line-height: 20px;
+                        font-weight: 600;
+                    }
+                    #category {
+                        display: block;
+                        /*width: calc(~"100% - 132px");*/
+                        margin: 10px 0 20px;
+                    }
+
+                    .hww-faq-submit-button{
+                        border: 0;
+                        border-radius: 0;
+                        background-color: #000;
+                        color: #fff;
+                        padding: 10px 30px;
+                        font-size: 16px;
+                        line-height: 20px;
+                        -webkit-transition: .3s;
+                        -o-transition: .3s;
+                        transition: .3s;
+                        margin: 20px auto;
+
+                        &:hover{
+                            background-color: #818181;
+                            color: #fff;
+                            border: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
 }
 
 
 // Desktop.
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+
+    #search-container{
+        .search-button {
+            padding: 12px 50px;
+        }
+    }
+
+    .hww-faq-categories {
+        width: 25%;
+        display: inline-block;
+    }
+
+    .hww-faq-all-category-sections {
+        width: 70%;
+        margin-left: 30px;
+        float: right;
+
+        .hww-faq-category-section{
+
+            .hww-faq-item-list{
+
+                .hww-faq-item {
+                    position: relative;
+                    margin-bottom: 0;
+                    cursor: pointer;
+
+
+                    h3{
+
+                        &.hww-faq-question {
+                            font-size: 20px;
+                            line-height: 1;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
 
 .media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__xl) {
 }
@@ -193,8 +326,7 @@
 }
 
 
-.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
-}
+
 
 // Mobile
 .media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__m) {
