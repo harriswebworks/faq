@@ -1,7 +1,5 @@
 define(['jquery'], function ($) {
     'use strict';
-    // Hide all answers initially
-    $('.hww-faq-answer').hide();
 
     // Show the selected category section on category link click
     $('.category-link').on('click', function (event) {
