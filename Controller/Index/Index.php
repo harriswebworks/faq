@@ -1,5 +1,6 @@
 <?php
 namespace Harriswebworks\FAQ\Controller\Index;
+use Harriswebworks\FAQ\Block\Faq;
 
 class Index extends \Magento\Framework\App\Action\Action
 {
@@ -8,15 +9,19 @@ class Index extends \Magento\Framework\App\Action\Action
      */
     protected $_pageFactory;
 
+    protected $response;
+
     /**
      * @param \Magento\Framework\App\Action\Context $context
      */
     public function __construct(
        \Magento\Framework\App\Action\Context $context,
-       \Magento\Framework\View\Result\PageFactory $pageFactory
+       \Magento\Framework\View\Result\PageFactory $pageFactory,
+       Faq $response
     )
     {
         $this->_pageFactory = $pageFactory;
+        $this->response = $response;
         return parent::__construct($context);
     }
     /**
@@ -26,6 +31,8 @@ class Index extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
-        return $this->_pageFactory->create();
+        if($this->response->isModuleEnabled()){
+            return $this->_pageFactory->create();
+        }
     }
 }

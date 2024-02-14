@@ -48,7 +48,7 @@
                         <?php if ($faqItem->getCategoryId() == $category->getCategoryId() && $faqItem->getAnswer()) : ?>
                             <li id="faq-item" class="faq-item hww-faq-item">
                                 <h3 class="hww-faq-question">Q<?php echo $count; ?>: <?php echo $faqItem->getQuestion(); ?></h3>
-                                <span class="hww-faq-answer">A: <?php echo $faqItem->getAnswer(); ?></span>
+                                <p class="hww-faq-answer">A: <?php echo $faqItem->getAnswer(); ?></p>
                             </li>
                             <?php $count++; ?>
                         <?php endif; ?>
@@ -67,7 +67,7 @@
 <div id="popup-modal" style="display: none;">
     <div class="hww-faq-ask-question-section">
         <form action="<?php echo $block->getUrl('faq/index/submitQuestion') ?>" method="post" id="ask-question-form" class="hww-faq-form">
-           
+
             <select name="category" id="category" required class="hww-faq-select">
                 <option value="" selected disabled>Select a category</option>
                 <?php foreach ($faqCategories as $category) : ?>
