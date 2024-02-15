@@ -1,17 +1,18 @@
 <h1 class="hww-faq-title"><?php echo $this->getFaqTitle(); ?></h1>
 
+<?php $class = ""; ?>
 <?php $faqItems = $block->getFaqItems(); ?>
 <?php $faqCategories = $block->getFaqCategories(); ?>
 
 
-<?php if($this->isSearchEnabled()) { ?>
-<div id="search-container" class="search-bar">
-    <input type="text" id="search-bar" class="search-text" placeholder="Search for..." />
-    <button type="button" id="search-button" class="search-button" value="Search">Search</button>
-</div>
+<?php if ($this->isSearchEnabled()) { ?>
+    <div id="search-container" class="search-bar">
+        <input type="text" id="search-bar" class="search-text" placeholder="Search for..." />
+        <button type="button" id="search-button" class="search-button" value="Search">Search</button>
+    </div>
 <?php } ?>
 
-<?php if ($this->isSidebarEnabled()) : ?>
+<?php if ($this->isSidebarEnabled()) { ?>
     <div class="hww-faq-categories">
         <h2 class="hww-faq-category-title">Categories</h2>
         <ul class="hww-faq-category-list">
@@ -29,8 +30,12 @@
             <?php endforeach; ?>
         </ul>
     </div>
-<?php endif; ?>
-<div class="hww-faq-all-category-sections">
+<?php } else {
+    $class = " hww-faq-all-category-sections-full";
+} ?>
+
+
+<div class="hww-faq-all-category-sections<?php echo $class ?>">
     <?php foreach ($faqCategories as $category) : ?>
         <?php
         $categoryItems = array_filter($faqItems, function ($faqItem) use ($category) {
@@ -61,7 +66,7 @@
 
 <!-- Section to Ask a Question -->
 <?php if ($this->isAskQuestionEnabled()) : ?>
-<div class="ask-btn-area"> <button id="open-popup-button" class="hww-faq-open-popup-button">Ask a Question</button></div>
+    <div class="ask-btn-area"> <button id="open-popup-button" class="hww-faq-open-popup-button">Ask a Question</button></div>
 <?php endif; ?>
 
 <div id="popup-modal" style="display: none;">
