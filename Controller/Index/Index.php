@@ -31,7 +31,10 @@ class Index extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
-        if($this->response->isModuleEnabled()){
+        if(!$this->response->isModuleEnabled()){
+            $this->_redirect('noroute');
+            return;
+        }else{
             return $this->_pageFactory->create();
         }
     }

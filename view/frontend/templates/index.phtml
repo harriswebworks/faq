@@ -108,3 +108,14 @@
         return true;
     }
 </script>
+
+<script>
+    var floatingButtonContainer = document.querySelector('.ask-btn-area');
+    var scrollY = window.scrollY;
+
+
+    window.addEventListener('scroll', function() {
+        scrollY = window.scrollY;
+        floatingButtonContainer.style.top = scrollY + window.innerHeight - 150 + 'px';
+    });
+</script>
