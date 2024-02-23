@@ -71,7 +71,7 @@
 
 <div id="popup-modal" style="display: none;">
     <div class="hww-faq-ask-question-section">
-        <form action="<?php echo $block->getUrl('faq/index/submitQuestion') ?>" method="post" id="ask-question-form" class="hww-faq-form">
+        <form action="<?php echo $block->getUrl('faq/index/submitQuestion') ?>" method="post" id="ask-question-form" class="hww-faq-form" onsubmit="return validateForm()">
 
             <select name="category" id="category" required class="hww-faq-select">
                 <option value="" selected disabled>Select a category</option>
@@ -81,6 +81,7 @@
             </select>
             <label for="question" class="hww-faq-label">Your Question:</label>
             <textarea name="question" id="question" cols="30" rows="5" required class="hww-faq-textarea"></textarea>
+            <div id="validation-message" style="color: red;"></div>
             <input type="submit" value="Submit Question" class="hww-faq-submit-button">
         </form>
     </div>
@@ -89,4 +90,21 @@
     require(['jquery', 'Harriswebworks_FAQ/js/faq'], function($) {});
     require(['jquery', 'Harriswebworks_FAQ/js/search'], function($) {});
     require(['jquery', 'Harriswebworks_FAQ/js/askPopup'], function($) {});
+</script>
+
+<script>
+    function validateForm() {
+        var questionField = document.getElementById("question");
+        var questionValue = questionField.value.trim();
+        var validationMessage = document.getElementById("validation-message");
+
+
+        if (questionValue === "") {
+            validationMessage.innerText = "Please enter a non-empty question";
+            return false;
+        }
+
+        validationMessage.innerText = "";
+        return true;
+    }
 </script>
