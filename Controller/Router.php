@@ -31,6 +31,7 @@ class Router implements RouterInterface
      */
     protected $helper;
 
+
     /**
      * Router constructor.
      *
@@ -67,7 +68,7 @@ class Router implements RouterInterface
             if ($route !== '' && $identifier === $route) {
                 $request->setModuleName('faq')
                     ->setControllerName('index')
-                    ->setActionName('index');
+                    ->setActionName('view');
                 $request->setAlias(\Magento\Framework\Url::REWRITE_REQUEST_PATH_ALIAS, $identifier);
                 $this->dispatched = true;
 
