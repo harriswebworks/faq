@@ -38,4 +38,9 @@ class View extends \Magento\Framework\App\Action\Action
             return $this->_pageFactory->create();
         }
     }
+
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Magento_Customer::manage');
+    }
 }
