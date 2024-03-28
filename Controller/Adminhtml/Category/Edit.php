@@ -8,7 +8,7 @@ use Harriswebworks\FAQ\Model\Faq as Faq;
 class Edit extends \Magento\Backend\App\Action
 {
 
-    const ADMIN_RESOURCE = 'Harriswebworks_FAQ::category';
+    const ADMIN_RESOURCE = 'Harriswebworks_FAQ::category_menu';
     protected $resultPageFactory;
     private $faqCollection;
 
