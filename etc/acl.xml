@@ -2,12 +2,12 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
     <acl>
         <resources>
-            <resource id="Magento_Backend::admin"> 
+            <resource id="Magento_Backend::admin">
                 <resource id="Harriswebworks_Core::all" title="Harriswebworks" sortOrder="0">
-                    <resource id="Harriswebworks_FAQ::faq" title="FAQ" sortOrder="10" parent="Harriswebworks_Core::all">
-                        <resource id="Harriswebworks_FAQ::faq_menu" title="Article" sortOrder="10" parent="Harriswebworks_FAQ::faq"/>
-                        <resource id="Harriswebworks_FAQ::category_menu" title="Category" sortOrder="20" parent="Harriswebworks_FAQ::faq"/>
-                        <resource id="Harriswebworks_FAQ::faq_settings" title="Settings" sortOrder="30" parent="Harriswebworks_FAQ::faq"/>
+                    <resource id="Harriswebworks_FAQ::faq" title="FAQ" sortOrder="10">
+                        <resource id="Harriswebworks_FAQ::faq_menu" title="Article" sortOrder="10"/>
+                        <resource id="Harriswebworks_FAQ::category_menu" title="Category" sortOrder="20"/>
+                        <resource id="Harriswebworks_FAQ::faq_settings" title="Settings" sortOrder="30"/>
                     </resource>
                 </resource>
             </resource>
