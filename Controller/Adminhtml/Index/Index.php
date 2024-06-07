@@ -24,6 +24,6 @@ class Index extends \Magento\Backend\App\Action
 
 	protected function _isAllowed()
 	{
-		return $this->_authorization->isAllowed('Harriswebworks_FAQ::faq');
+		return $this->_authorization->isAllowed('Harriswebworks_FAQ::faq_menu');
 	}
 }
